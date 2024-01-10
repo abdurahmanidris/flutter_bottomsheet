@@ -11,15 +11,15 @@ class NavBar extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.green,
+              color: Colors.blue,
             ), //BoxDecoration
             child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
+              decoration: BoxDecoration(color: Colors.blue),
               accountName: Text(
-                "Abhishek Mishra",
+                "Abdurahman Idris",
                 style: TextStyle(fontSize: 18),
               ),
-              accountEmail: Text("abhishekm977@gmail.com"),
+              accountEmail: Text("abduidrismx@gmail.com"),
               currentAccountPictureSize: Size.square(50),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Color.fromARGB(255, 165, 255, 137),
@@ -38,8 +38,8 @@ class NavBar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.book),
-            title: const Text(' My Course '),
+            leading: const Icon(Icons.pin),
+            title: const Text(' Change PIN '),
             onTap: () {
               Navigator.pop(context);
             },
@@ -52,15 +52,8 @@ class NavBar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.video_label),
-            title: const Text(' Saved Videos '),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.edit),
-            title: const Text(' Edit Profile '),
+            leading: const Icon(Icons.unsubscribe),
+            title: const Text(' Unsubscribe '),
             onTap: () {
               Navigator.pop(context);
             },
