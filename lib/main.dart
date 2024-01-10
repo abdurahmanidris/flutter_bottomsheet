@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:helloflutter/navbar.dart';
-import 'package:helloflutter/home_page.dart';
-import 'package:helloflutter/bottom_navigation_page.dart';
+import 'package:flutter_bottomsheet/modal_bottom_sheet.dart';
+import 'package:flutter_bottomsheet/navbar.dart';
+import 'package:flutter_bottomsheet/home_page.dart';
+import 'package:flutter_bottomsheet/bottom_navigation_page.dart';
+import 'package:flutter_bottomsheet/sidebar/sidebar_layout.dart';
+// import 'package:flutter_bottomsheet/navigation_menu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,18 +17,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HelloFlutter(),
+      home: const flutter_bottomsheet(),
+      // home: const SideBarLayout(),
     );
   }
 }
 
-class HelloFlutter extends StatelessWidget {
-  const HelloFlutter({super.key});
+class flutter_bottomsheet extends StatelessWidget {
+  const flutter_bottomsheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +38,19 @@ class HelloFlutter extends StatelessWidget {
       // backgroundColor: Colors.lightGreen,
       appBar: AppBar(
         backgroundColor: Colors.greenAccent[400],
-        title: const Text("GeegsforGeegs"),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: Icon(
+              Icons.menu,
+            ),
+          );
+        }),
+        // leading: InkWell(
+        //   onTap: _onMenuTap,
+        //   child: const Icon(Icons.list, color: Colors.black),
+        // ),
+        title: const Text("Test App - 1"),
         titleSpacing: 00.0,
         centerTitle: true,
         toolbarHeight: 60.2,
@@ -41,7 +58,13 @@ class HelloFlutter extends StatelessWidget {
       ),
       drawer: const NavBar(),
       body: const HomePage(),
+      // body: Stack(children: [
+      //   Container(color: Colors.white),
+      // ]),
       bottomNavigationBar: const BottomBar(),
+      bottomSheet: ModalBottomSheet(),
     );
   }
+
+  // void _onMenuTap() {}
 }
